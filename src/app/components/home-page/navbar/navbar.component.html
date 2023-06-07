@@ -1,0 +1,51 @@
+
+    <mat-drawer style="position: fixed;"  #drawer mode="side" [opened]="isDrawerOpen"  [disableClose]="isDrawerDisabled" (closedStart)="onDrawerClosed()">
+        <mat-list>
+            <mat-list-item (click)="onDrawerClosed()" >
+                <mat-icon matListItemIcon>home</mat-icon>
+                <div matListItemTitle>Inicio</div>
+            </mat-list-item>
+            
+            <mat-list-item (click)="onDrawerClosed()">
+                <mat-icon matListItemIcon>reduce_capacity</mat-icon>
+                <div matListItemTitle>Sobre Nosotros</div>
+                
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item (click)="onDrawerClosed()">
+                <mat-icon matListItemIcon>groups</mat-icon>
+                <div matListItemTitle>Funcionarios</div>
+            </mat-list-item>
+            
+            <mat-list-item (click)="onDrawerClosed()">
+                <mat-icon matListItemIcon>auto_stories</mat-icon>
+                <div matListItemTitle>Noticias</div>
+            </mat-list-item>
+            
+            <mat-list-item (click)="onDrawerClosed()">
+                <mat-icon matListItemIcon>comment</mat-icon>
+                <div matListItemTitle>Preguntas</div>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar style="position: fixed; top:0;left: 0;right: 0;z-index: 100;" [ngStyle]="{'background-color': ' #495fe7 ', 'color': 'white'}">
+        
+            <button (click)="toggleDrawer()" [disabled]="isDrawerDisabled"  style="margin-right: 20px;" *ngIf="isTablet"  mat-button [ngStyle]="{'background-color': '  #f6d904  '}">
+    
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span [ngStyle]="{'color':'#f6d904'}"  style="margin-right: 50px;">Totem App</span>
+            
+                <div style="display: flex;">
+                    <button style="margin-right: 5px;" *ngIf="!isTablet"  mat-button>Inicio</button>
+                    <button style="margin-right: 5px;" *ngIf="!isTablet"  mat-button>Sobre Nosotros</button>
+                </div>    
+        </mat-toolbar>
+    </mat-drawer-content>
+    
+
+
+      
+
+

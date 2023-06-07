@@ -1,0 +1,11 @@
+.mat-grid-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%; /* Opcionalmente, establece una altura al contenedor */
+  }
+  
+  .mat-grid-list {
+    width: 100%;
+  }
