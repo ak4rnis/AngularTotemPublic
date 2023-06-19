@@ -1,0 +1,64 @@
+<br>
+<br>
+<swiper-container style="height:300px;width: 600px">
+
+  <swiper-slide>
+  <button class="btn btn-success">Punto estudiantil</button>
+
+  </swiper-slide>
+  <swiper-slide>
+    <button class="btn btn-success">Punto estudiantil</button>
+  </swiper-slide>
+  <swiper-slide>
+    <button class="btn btn-success">Punto estudiantil</button>
+  </swiper-slide>
+  <swiper-slide>
+    <button class="btn btn-success">Punto estudiantil</button>
+  </swiper-slide>
+  <swiper-slide>
+    <button class="btn btn-success">Punto estudiantil</button>
+  </swiper-slide>
+  <swiper-slide>  <button class="btn btn-success">Punto estudiantil</button></swiper-slide>
+
+</swiper-container>
+
+<!-- Muestra la información de la categoría seleccionada aquí -->
+<div *ngIf="selectedCategory">
+  <h1>{{selectedCategory.name}}</h1>
+  <!-- Aquí puedes mostrar más información sobre la categoría seleccionada -->
+</div>
+
+
+
+<script>
+  // swiper element
+  const swiperEl = document.querySelector('swiper-container');
+
+  // swiper parameters}
+  const swiperParams = {
+    loop: true,
+    pagination: { clickable: true },
+    spaceBetween: 2,
+    slidesPerGroup:1,
+    slidesPerView: 3,
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+    on: {
+      init() {
+        // ...
+      },
+    },
+  };
+
+  // now we need to assign all parameters to Swiper element
+  Object.assign(swiperEl, swiperParams);
+
+  // and now initialize it
+  swiperEl.initialize();
+</script>
