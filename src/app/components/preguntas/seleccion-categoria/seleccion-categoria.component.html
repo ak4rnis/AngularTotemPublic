@@ -77,25 +77,39 @@
     </swiper-slide>
 </swiper-container>
 
-<div *ngFor="let pregunta of preguntas.data">
-    <div class="col-md-5 border-right mt-1 mb-1">
-        <div class="col">
-            <div class="row">
-                <div class="col-md-1"><i class=" blue-color"></i> </div>
-                <div class="col-md-11"> {{pregunta.pregunta}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-1"><i class=" blue-color"></i> </div>
-                <div class="col-md-11"> {{pregunta.respuesta}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-1"><i class=" blue-color"></i> </div>
-                <div class="col-md-11"> {{pregunta.categoria}}</div>
-            </div>
 
-        </div>
-    </div>
-</div>
+          <div class="card " style="width: 50rem;margin-left: 250px; padding: 3px" >
+            <div class="card-header text-center">
+              Selecciona una pregunta
+            </div>
+            <ul class="list-group list-group-flush " >
+              <li class="list-group-item text-center"  *ngFor="let pregunta of preguntas.data;let i = index">
+              <button type="button" class="btn " data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+pregunta.id_pregunta">
+                {{pregunta.pregunta}}
+              </button>
+                <div class="modal fade" [attr.id]="'exampleModal'+pregunta.id_pregunta" tabindex="-1" [attr.aria-labelledby]="'exampleModalLabel'+pregunta.id_pregunta" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{pregunta.pregunta}}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        {{pregunta.respuesta}}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+
 
 
 
