@@ -1,64 +1,107 @@
-<br>
-<br>
-<swiper-container style="height:300px;width: 600px">
+<!DOCTYPE html>
+<html lang="en">
 
-  <swiper-slide>
-  <button class="btn btn-success">Punto estudiantil</button>
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-  </swiper-slide>
-  <swiper-slide>
-    <button class="btn btn-success">Punto estudiantil</button>
-  </swiper-slide>
-  <swiper-slide>
-    <button class="btn btn-success">Punto estudiantil</button>
-  </swiper-slide>
-  <swiper-slide>
-    <button class="btn btn-success">Punto estudiantil</button>
-  </swiper-slide>
-  <swiper-slide>
-    <button class="btn btn-success">Punto estudiantil</button>
-  </swiper-slide>
-  <swiper-slide>  <button class="btn btn-success">Punto estudiantil</button></swiper-slide>
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
 
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 300px;
+        }
+
+        swiper-slide img {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+                  slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+                  coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+    <swiper-slide>
+      <a (click)="showInfo('Aquí está la información de la biblioteca Duoc UC.');   ">
+          <img src="assets/Biblioteca%20Duoc%20UC.png" />
+      </a>
+    </swiper-slide>
+    <swiper-slide>
+        <img src="assets/Desarrollo%20estudiantil.png" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+    </swiper-slide>
 </swiper-container>
 
-<!-- Muestra la información de la categoría seleccionada aquí -->
-<div *ngIf="selectedCategory">
-  <h1>{{selectedCategory.name}}</h1>
-  <!-- Aquí puedes mostrar más información sobre la categoría seleccionada -->
+<div *ngFor="let pregunta of preguntas.data">
+    <div class="col-md-5 border-right mt-1 mb-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class=" blue-color"></i> </div>
+                <div class="col-md-11"> {{pregunta.pregunta}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"><i class=" blue-color"></i> </div>
+                <div class="col-md-11"> {{pregunta.respuesta}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"><i class=" blue-color"></i> </div>
+                <div class="col-md-11"> {{pregunta.categoria}}</div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 
 
-<script>
-  // swiper element
-  const swiperEl = document.querySelector('swiper-container');
 
-  // swiper parameters}
-  const swiperParams = {
-    loop: true,
-    pagination: { clickable: true },
-    spaceBetween: 2,
-    slidesPerGroup:1,
-    slidesPerView: 3,
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-    on: {
-      init() {
-        // ...
-      },
-    },
-  };
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 
-  // now we need to assign all parameters to Swiper element
-  Object.assign(swiperEl, swiperParams);
+</body>
 
-  // and now initialize it
-  swiperEl.initialize();
-</script>
+</html>

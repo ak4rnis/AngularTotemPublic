@@ -22,7 +22,8 @@ import {NgFor, DatePipe} from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SeleccionCategoriaComponent } from './components/preguntas/seleccion-categoria/seleccion-categoria.component';
 import { CategoriaComponent } from './components/preguntas/categoria/categoria.component';
-
+import { AgregarFuncionarioComponent } from './components/mantenedor/agregar-funcionario/agregar-funcionario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CategoriaComponent } from './components/preguntas/categoria/categoria.c
     NoticiasIndexComponent,
     SeleccionCategoriaComponent,
     CategoriaComponent,
+    AgregarFuncionarioComponent,
 
 
   ],
@@ -53,7 +55,7 @@ import { CategoriaComponent } from './components/preguntas/categoria/categoria.c
     MatDividerModule,
     DatePipe,
     FlexLayoutModule,
-
+    HttpClientModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
