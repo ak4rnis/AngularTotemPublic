@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,11 +8,13 @@ export class PreguntasService {
   constructor(private http: HttpClient) { }
 
   registrarPreguntaAdmin(pregunta:any) {
-    return this.http.post(`${this.baseURL}/registrar_pregunta_admin`, pregunta);
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.post(`${this.baseURL}/registrar_pregunta_admin`, pregunta,{headers:headers});
   }
 
   listarPreguntasAdmin() {
-    return this.http.get(`${this.baseURL}/listar_preguntas_admin`);
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.get(`${this.baseURL}/listar_preguntas_admin`, {headers:headers});
   }
 
   mostrarPreguntaPkAdmin(pk:any) {

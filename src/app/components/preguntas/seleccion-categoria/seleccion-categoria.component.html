@@ -1,121 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <title>Swiper demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<div class="container p-4" style="background-color: rgb(73, 95, 231);">
+<div class="row">
+  <div class="col-1 contenedor">
+    <a [routerLink]="['']"> <img src="assets/flechaIzquierda.png" style="height:70px;width:70px">
+      <div class="texto-encima"></div> <div class="centrado">Volver</div></a>
+  </div>
+  <div class="col-2"></div>
+  <div class="col-6" > <h1> Escoge el tema en que necesitas ayuda</h1></div>
+</div>
 
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
+</div>
 
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        swiper-container {
-            width: 100%;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            height: 300px;
-        }
-
-        swiper-slide img {
-            display: block;
-            width: 100%;
-        }
-    </style>
-</head>
-
-<body>
+<div>
 <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
-                  slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
-                  coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
-    <swiper-slide>
-      <a (click)="showInfo('Aquí está la información de la biblioteca Duoc UC.');   ">
-          <img src="assets/Biblioteca%20Duoc%20UC.png" />
-      </a>
-    </swiper-slide>
-    <swiper-slide>
-        <img src="assets/Desarrollo%20estudiantil.png" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-    </swiper-slide>
+                  slides-per-view="7" coverflow-effect-rotate="0" coverflow-effect-stretch="0" coverflow-effect-depth="50"
+                  coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" loop="true"  initialSlide="0">
+  <swiper-slide>
+    <a (click)="showInfo('Aquí está la información de la biblioteca Duoc UC.');   ">
+      <img src="assets/Biblioteca%20Duoc%20UC.png" />
+    </a>
+  </swiper-slide>
+  <swiper-slide>
+    <img src="assets/Desarrollo%20estudiantil.png" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="	" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+  </swiper-slide>
 </swiper-container>
+</div>
 
 
-          <div class="card " style="width: 50rem;margin-left: 250px; padding: 3px" >
-            <div class="card-header text-center">
-              Selecciona una pregunta
+<div class="card " style="width: 50rem;margin-left: 250px; padding: 3px" >
+  <div class="card-header text-center">
+    Selecciona una pregunta
+  </div>
+  <ul class="list-group list-group-flush " >
+    <li class="list-group-item text-center"  *ngFor="let pregunta of preguntas.data;let i = index">
+      <button type="button" class="btn " data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+pregunta.id_pregunta">
+        {{pregunta.pregunta}}
+      </button>
+      <div class="modal fade" [attr.id]="'exampleModal'+pregunta.id_pregunta" tabindex="-1" [attr.aria-labelledby]="'exampleModalLabel'+pregunta.id_pregunta" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{pregunta.pregunta}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <ul class="list-group list-group-flush " >
-              <li class="list-group-item text-center"  *ngFor="let pregunta of preguntas.data;let i = index">
-              <button type="button" class="btn " data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+pregunta.id_pregunta">
-                {{pregunta.pregunta}}
-              </button>
-                <div class="modal fade" [attr.id]="'exampleModal'+pregunta.id_pregunta" tabindex="-1" [attr.aria-labelledby]="'exampleModalLabel'+pregunta.id_pregunta" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{pregunta.pregunta}}</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        {{pregunta.respuesta}}
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <div class="modal-body">
+              {{pregunta.respuesta}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
-
-
-
-
-
-
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 
-</body>
-
-</html>
