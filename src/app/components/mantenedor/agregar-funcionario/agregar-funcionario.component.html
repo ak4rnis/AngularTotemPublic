@@ -1,4 +1,4 @@
-<!--
+
 <div class="col mb-3">
   <div class="col-md-12 mb-3">
     <img src="assets/product.png" class="rounded-circle" width="200px" height="200px"/>
@@ -6,41 +6,51 @@
   <hr>
   <div class="col-md-12">
     <div class="col-md-12 m-3">
-      <h2><i class="fas fa-info-circle blue-color"></i>&nbsp; Informacion del articulo </h2>
+      <h2><i class="fas fa-info-circle blue-color"></i>&nbsp; Informacion del funcionario </h2>
     </div>
     <div class="col-md-12 " style="padding: 15px">
-      <form [formGroup]="producto">
+      <form [formGroup]="funcionario">
 
         <div class="row mb-3">
           <div class="col">
             <input formControlName="nombre" type="text" class="form-control" placeholder="nombre">
           </div>
           <div class="col">
-            <input formControlName="marca" type="text" class="form-control" placeholder="marca">
+            <input formControlName="apellido" type="text" class="form-control" placeholder="apellido">
           </div>
         </div>
 
         <div class="row mb-3">
           <div class="col">
-            <input formControlName="modelo" type="text" class="form-control" placeholder="modelo">
+            <input formControlName="url_fotografia" type="text" class="form-control" placeholder="fotografia">
           </div>
           <div class="col">
-            <input formControlName="descripcion" type="text" class="form-control" placeholder="descripcion">
+            <input formControlName="correo" type="text" class="form-control" placeholder="correo">
           </div>
         </div>
         <div class="row mb-3">
           <div class="col">
-            <input formControlName="cantidad_existente" type="number" class="form-control" placeholder="cantidad">
+            <input formControlName="ubicacion" type="text" class="form-control" placeholder="ubicacion">
           </div>
           <div class="col">
+            <input formControlName="tipo_funcionario" type="text" class="form-control" placeholder="tipo_funcionario">
+          </div>
+        <!--  <div class="col">
             <select formControlName="selectedArea"  (change)="tomarDato($event)"  class="form-control">
               <option value="" disabled selected>Selecciona un area</option>
               <option *ngFor="let area of areas"  id="id_area" [value]="area.id_Area">{{area.nombre_area}}</option>
             </select>
-          </div>
+          </div> -->
         </div>
 
-
+        <div class="row mb-3">
+          <div class="col">
+            <input formControlName="tags" type="text" class="form-control" placeholder="tags">
+          </div>
+          <div class="col">
+            <input formControlName="categoria" type="text" class="form-control" placeholder="categoria">
+          </div>
+        </div>
 
 
 
@@ -52,12 +62,12 @@
 </div>
 
 <div class=" text-right">
-  <button class="btn btn-danger m-3" (click)="revisar()" >
+  <button class="btn btn-danger m-3"  >
     <i class="fas fa-ban">&nbsp; Anular</i>
   </button>
-  <button (click)="crearProducto()" class="btn btn-primary m-3">
+  <button (click)="agregarFuncionario()" class="btn btn-primary m-3">
     <i class="fas fa-save">&nbsp; Agregar</i>
   </button>
 </div>
 </div>
--->
+

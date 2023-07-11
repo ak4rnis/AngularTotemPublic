@@ -1,0 +1,36 @@
+
+<div class="" style="background-color: rgb(73, 95, 231);">
+  <div class="row">
+    <div class="col-1 contenedor">
+      <a [routerLink]="['']"> <img src="assets/flechaIzquierda.png" style="height:70px;width:70px">
+        <div class="texto-encima"></div> <div class="centrado">Volver</div></a>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-6" > <h1 style="padding-top: 15px;"> Funcionarios</h1></div>
+  </div>
+
+</div>
+<br><br>
+
+
+<div class="col p-3">
+  <div class="row">
+    <div class="col-sm-4 " *ngFor="let funcionario of funcionarios.data">
+      <div class="card" style="width: 18rem;">
+        <img src="{{funcionario.url_fotografia}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title">{{funcionario.nombre}} {{funcionario.apellido}}</h2>
+          <p class="card-text">{{funcionario.correo}}</p>
+          <p class="card-text">{{funcionario.ubicacion}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

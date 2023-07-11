@@ -17,7 +17,8 @@ swiper-slide {
 }
 h1{
   font-family: fantasy;
-  font-size: 230%;
+  font-size: 300%;
+  color:#f6d904;
 }
 
 swiper-slide img {
@@ -26,7 +27,7 @@ swiper-slide img {
 }
 
 body {
-  background: #eee;
+  background: #f6d904;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -37,6 +38,7 @@ html,
 body {
   position: relative;
   height: 100%;
+  background:#f6d904 ;
 }
 
 

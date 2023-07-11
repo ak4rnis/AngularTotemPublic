@@ -1,1 +1,67 @@
-<p>noticias-index works!</p>
+
+<div class=" p-1" style="background-color: rgb(73, 95, 231);">
+  <div class="row">
+    <div class="col-1 contenedor">
+      <a [routerLink]="['']"> <img src="assets/flechaIzquierda.png" style="height:70px;width:70px">
+        <div class="texto-encima"></div> <div class="centrado">Volver</div></a>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-8" > <h1 style="padding-top: 20px;"> Noticias</h1></div>
+  </div>
+
+</div>
+
+<swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+                  loop="true" >
+
+  <swiper-slide>
+    <img src="https://www.duoc.cl/wp-content/uploads/2023/06/6m4a4567_52989348989_o-730x730.jpg" alt="Últimos días para participar del concurso que busca rescatar el patrimonio nacional">
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://www.duoc.cl/wp-content/uploads/2023/06/convenio--730x730.png" alt="Duoc UC y Tecmundo establecen alianza estratégica para impulsar la innovación y el desarrollo tecnológico">
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://www.duoc.cl/wp-content/uploads/2023/06/vin%CC%83a-730x730.png" alt="Estudiantes de Publicidad son finalistas de los Effie College">
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://www.duoc.cl/wp-content/uploads/2023/06/Captura-de-Pantalla-2023-06-27-a-las-09.56.16-730x730.png" alt="Muévete con Duoc | Duoc UC A Puertas Abiertas">
+  </swiper-slide><swiper-slide>
+  <img src="Muévete con Duoc | Duoc UC A Puertas Abiertas" alt="Ciclo Panadería para Emprender: Conceptos y Técnicas Básicas de Panificación | Online">
+</swiper-slide><swiper-slide>
+  <img src="https://www.duoc.cl/wp-content/uploads/2023/06/Captura-de-Pantalla-2023-06-19-a-las-09.59.31-730x730.png" alt="“1966, Voces silenciadas” Presentación Folklórica Valle del Aconcagua-Guayacán">
+</swiper-slide>
+
+
+
+
+</swiper-container>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+
+<script>
+  import './style.css';
+
+  const appDiv = document.getElementById('app');
+
+  let posts = '';
+  fetch('https://www.instagram.com/duoc_plazavespucio/?__a=1')
+    .then((response)=> {
+      return response.json();
+    })
+    .then((data)=> {
+      data.graphql.user.edge_owner_to_timeline_media.edges.map(item=>{
+        posts += `<a href="https://www.instagram.com/p/${item.node.shortcode}/" class="item">
+        <img src="${item.node.thumbnail_src}" class="foto"/>
+        <div class="info">
+          <div class="likes">Likes: ${item.node.edge_liked_by.count}</div>
+          <div class="comments"> Comments: ${item.node.edge_media_to_comment.count}</div></div>
+        </div>
+      </a>`
+      })
+
+      appDiv.innerHTML = posts
+    });
+
+</script>

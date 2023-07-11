@@ -24,6 +24,9 @@ import { SeleccionCategoriaComponent } from './components/preguntas/seleccion-ca
 import { CategoriaComponent } from './components/preguntas/categoria/categoria.component';
 import { AgregarFuncionarioComponent } from './components/mantenedor/agregar-funcionario/agregar-funcionario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
+import { AgregarPreguntaComponent } from './components/mantenedor/agregar-pregunta/agregar-pregunta.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     SeleccionCategoriaComponent,
     CategoriaComponent,
     AgregarFuncionarioComponent,
+    FuncionariosComponent,
+    AgregarPreguntaComponent,
 
 
   ],
@@ -55,7 +60,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDividerModule,
     DatePipe,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
