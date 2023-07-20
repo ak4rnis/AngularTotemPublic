@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
 import { AgregarPreguntaComponent } from './components/mantenedor/agregar-pregunta/agregar-pregunta.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     AgregarFuncionarioComponent,
     FuncionariosComponent,
     AgregarPreguntaComponent,
+    BuscadorComponent,
 
 
   ],
