@@ -9,6 +9,7 @@ import {PreguntasService} from "../../../services/preguntas.service";
 })
 export class SeleccionCategoriaComponent implements OnInit{
   preguntas:any;
+  preguntasFiltradas :any;
   currentFilter: string = '';
   constructor(private preguntaService: PreguntasService) {
   }
@@ -17,6 +18,7 @@ export class SeleccionCategoriaComponent implements OnInit{
   }
   setFilter(filter: string) {
     this.currentFilter = filter;
+    this.filtrarPreguntas('');
   }
   get filteredPreguntas() {
     if (this.preguntas && this.preguntas.data) {
@@ -30,9 +32,22 @@ export class SeleccionCategoriaComponent implements OnInit{
     }
   }
   ngOnInit() {
+    this.preguntasFiltradas = [];
     this.preguntaService.listarPreguntasAdmin().subscribe(preguntas => {
       this.preguntas = preguntas ;
       console.log(this.preguntas)
     });
+  }
+  filtrarPreguntas(terminoBusqueda: string){
+    if (terminoBusqueda) {
+      let terminoBusquedaLower = terminoBusqueda.toLowerCase();
+      this.preguntasFiltradas = this.filteredPreguntas.filter((filteredPreguntas:any) =>
+      filteredPreguntas.pregunta.toLowerCase().includes(terminoBusquedaLower)
+        //||preguntas.apellido.toLowerCase().includes(terminoBusquedaLower)
+        );console.log(this.preguntasFiltradas);
+
+    } else {
+      this.preguntasFiltradas = [...this.filteredPreguntas];
+    }
   }
 }

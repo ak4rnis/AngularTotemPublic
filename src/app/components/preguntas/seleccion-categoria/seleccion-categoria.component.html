@@ -56,8 +56,11 @@
   <div class="card-header text-center">
     Selecciona una pregunta
   </div>
+  <div>
+    <app-buscador (busqueda)="filtrarPreguntas($event)"></app-buscador>
+  </div>
   <ul class="list-group list-group-flush " >
-    <li class="list-group-item text-center"  *ngFor="let pregunta of filteredPreguntas;let i = index">
+    <li class="list-group-item text-center"  *ngFor="let pregunta of preguntasFiltradas;let i = index">
       <button type="button" class="btn " data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+pregunta.id_pregunta">
         {{pregunta.pregunta}}
       </button>
